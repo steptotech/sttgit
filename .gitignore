@@ -1,0 +1,3 @@
+.DS_Store
+volumes/gitolite/home/git/repositories/*
+services/gitolite/admin.pub

@@ -1,0 +1,22 @@
+version: "3"
+
+###########################################
+services:
+  ###########################################
+
+  ######################
+  gitolite:
+  #######################
+    build:
+      context: ./services/gitolite/
+      dockerfile: Dockerfile
+    restart: always
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    volumes:
+      - "./services/gitolite/bootstrap.sh:/bootstrap.sh"
+      - "./volumes/gitolite/home/git/repositories:/home/git/repositories"
+    entrypoint: sh -c "/bootstrap.sh"
+    ports:
+      - "2222:22"
+
